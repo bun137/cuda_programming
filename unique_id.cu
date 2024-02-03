@@ -23,6 +23,7 @@ int main() {
   int size = sizeof(a) / sizeof(int);
   for (int i = 0; i < size; i++) {
     a[i] = d[i] + d1[i];
+    printf("a[%d] = %d \n", i, a[i]);
   }
 
   dim3 block(4, 1);
@@ -32,7 +33,6 @@ int main() {
   printf("Hello from CPU \n");
   cudaDeviceSynchronize(); // will make the prgram stall till all the launched
                            // kernels have finished execution
-
   cudaDeviceReset();
   return 0;
 }
